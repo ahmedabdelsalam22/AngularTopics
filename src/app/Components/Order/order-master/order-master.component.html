@@ -15,3 +15,8 @@
 <app-product-list [sentCatId]="selectedCatId" (totalPriceChange)="OnTotalPriceChange($event)"></app-product-list>
 
 <h3>Order Total: {{recievedOrderTotalPrice}}</h3>
+
+<div>
+  <h3>Enter your name:</h3>
+  <input #clientNameInp type="text" class="form-control">
+</div>
