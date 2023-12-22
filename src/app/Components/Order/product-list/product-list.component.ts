@@ -1,8 +1,10 @@
+import { StaticProductsService } from './../../../Services/static-products.service';
 import {
   Component,
   EventEmitter,
   Input,
   OnChanges,
+  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -14,7 +16,7 @@ import { IProduct } from 'src/app/Models/iproduct';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent implements OnChanges {
+export class ProductListComponent implements OnInit, OnChanges {
   catList: ICategory[];
   prdList: IProduct[];
 
@@ -27,7 +29,7 @@ export class ProductListComponent implements OnChanges {
   /**
    *
    */
-  constructor() {
+  constructor(private staticProdService: StaticProductsService) {
     this.totalPriceChange = new EventEmitter<number>();
     this.catList = [
       { id: 1, name: 'Labs' },
@@ -54,19 +56,18 @@ export class ProductListComponent implements OnChanges {
       },
     ];
   }
+  ngOnInit(): void {
+    this.prdListOfCat = this.staticProdService.getAllProducts();
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.filterProductByCatId();
   }
 
   filterProductByCatId() {
-    if (this.sentCatId == 0) {
-      this.prdListOfCat = this.prdList;
-    } else {
-      this.prdListOfCat = this.prdList.filter(
-        (prd) => prd.categoryId == this.sentCatId
-      );
-    }
+    this.prdListOfCat = this.staticProdService.getProductsByCatId(
+      this.sentCatId
+    );
   }
 
   buy(prdPrice: number, count: any) {

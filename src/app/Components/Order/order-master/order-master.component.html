@@ -12,7 +12,8 @@
 </div>
 
 
-<app-product-list [sentCatId]="selectedCatId" (totalPriceChange)="OnTotalPriceChange($event)"></app-product-list>
+<app-product-list [sentCatId]="selectedCatId" (totalPriceChange)="OnTotalPriceChange($event)">
+</app-product-list>
 
 <h3>Order Total: {{recievedOrderTotalPrice}}</h3>
 
