@@ -8,6 +8,8 @@
       <th scope="col">image</th>
       <th scope="col">CategoryId</th>
       <th scope="col">Count</th>
+      <th scope="col">Details</th>
+      <th scope="col">Buy</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +28,9 @@
         <td>{{item.categoryId}}</td>
         <td>
           <input #itemsCount class="form-control" type="number" />
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="prdDetails(item.id)">Details</button>
         </td>
         <td>
           <button type="button" class="btn btn-primary" (click)="buy(item.price , itemsCount.value)">Buy</button>

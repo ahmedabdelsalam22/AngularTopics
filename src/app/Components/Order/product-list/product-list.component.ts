@@ -8,6 +8,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICategory } from 'src/app/Models/icategory';
 import { IProduct } from 'src/app/Models/iproduct';
 
@@ -29,7 +30,10 @@ export class ProductListComponent implements OnInit, OnChanges {
   /**
    *
    */
-  constructor(private staticProdService: StaticProductsService) {
+  constructor(
+    private staticProdService: StaticProductsService,
+    private router: Router
+  ) {
     this.totalPriceChange = new EventEmitter<number>();
     this.catList = [
       { id: 1, name: 'Labs' },
@@ -68,6 +72,11 @@ export class ProductListComponent implements OnInit, OnChanges {
     this.prdListOfCat = this.staticProdService.getProductsByCatId(
       this.sentCatId
     );
+  }
+
+  prdDetails(prdID: number) {
+    this.router.navigate(['/Products', prdID]);
+    //this.router.navigateByUrl('/Products/'+prdID);
   }
 
   buy(prdPrice: number, count: any) {

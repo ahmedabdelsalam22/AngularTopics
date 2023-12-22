@@ -11,6 +11,10 @@ import { ProductListComponent } from './Components/Order/product-list/product-li
 import { FormsModule } from '@angular/forms';
 import { LightBoxDirective } from './Directives/light-box.directive';
 import { OrderMasterComponent } from './Components/Order/order-master/order-master.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { UserLoginComponent } from './Components/user-login/user-login.component';
+import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
+import { ProductDetailsComponent } from './Components/Order/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { OrderMasterComponent } from './Components/Order/order-master/order-mast
     HomeComponent,
     ProductListComponent,
     LightBoxDirective,
-    OrderMasterComponent
+    OrderMasterComponent,
+    NotFoundComponent,
+    UserLoginComponent,
+    MainLayoutComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
