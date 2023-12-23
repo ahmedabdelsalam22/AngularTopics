@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { StaticProductsService } from './../../../Services/static-products.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,11 +15,16 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private activitedRout: ActivatedRoute,
-    private prdService: StaticProductsService
+    private prdService: StaticProductsService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
     this.currPrdID = Number(this.activitedRout.snapshot.paramMap.get('pID'));
     this.prdList = this.prdService.getProductById(this.currPrdID);
+  }
+
+  back() {
+    this.location.back();
   }
 }
