@@ -7,6 +7,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './Components/Order/product-details/product-details.component';
+import { FormTestComponent } from './Components/Order/form-test/form-test.component';
 
 // first-match-wins strategy
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'Products', component: ProductListComponent },
       { path: 'Products/:pID', component: ProductDetailsComponent },
       { path: 'Order', component: OrderMasterComponent },
+      { path: 'FormTest', component: FormTestComponent },
     ],
   },
   { path: 'Login', component: UserLoginComponent },
