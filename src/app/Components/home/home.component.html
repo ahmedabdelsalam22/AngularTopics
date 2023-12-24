@@ -1,5 +1,28 @@
 <h1>{{storeInfo.name}}</h1>
 <img [src]="storeInfo.imgUrl" alt="image">
 <div *ngFor="let item of storeInfo.branches">
-<h2>{{item}}</h2>
+  <h2>{{item}}</h2>
+</div>
+
+<div>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Street</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address.street}}</td>
+        <td>{{user.phone}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
