@@ -1,15 +1,15 @@
 <div class="container">
-  <form action="">
-
+  <form #form="ngForm" (submit)="onSubmit(form)">
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" id="email" class="form-control" ngModel name="email" #email="ngModel" required>
+      <input type="email" id="email" class="form-control" ngModel name="email" [(ngModel)]="loginModel.email"
+        #email="ngModel" required>
       <div class="alert alert-danger mt-2" *ngIf="email.touched && !email.valid">required</div>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" class="form-control" ngModel name="password" #password="ngModel" required
-        minlength="8" maxlength="12">
+      <input type="password" id="password" class="form-control" ngModel name="password"
+        [(ngModel)]="loginModel.password" #password="ngModel" required minlength="8" maxlength="12">
     </div>
     <div class="alert alert-danger mt-2" *ngIf="password.touched && !password.valid">
       <div *ngIf="password.errors?.['required']">required</div>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="mt-2">
-      <button class="btn btn-primary">Send</button>
+      <button type="submit" class="btn btn-primary">Send</button>
     </div>
   </form>
 </div>
